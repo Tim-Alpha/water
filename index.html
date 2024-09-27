@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page with Glass of Water</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-image {
+            width: 300px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        #dynamic-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="water.png" alt="Water" class="glass-image">
+        <p id="dynamic-text">Bring water</p>
+    </div>
+
+    <script>
+        function updateTextFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name') || 'Nisha';
+            
+            document.getElementById('dynamic-text').textContent = `Hey ${name}, bring water please`;
+        }
+
+        updateTextFromUrl();
+    </script>
+</body>
+</html>
